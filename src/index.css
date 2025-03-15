@@ -1,43 +1,67 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  scroll-behavior: smooth;
+
+  --bg-color: rgb(246, 243, 243);
+  --text-color: black;
+  --scrollbar-track: rgb(222, 222, 222);
+  --scrollbar-thumb: rgb(100, 100, 100);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.dark {
+  --bg-color: rgb(30, 34, 43);
+  --text-color: white;
+  --scrollbar-track: rgb(41, 44, 49);
+  --scrollbar-thumb: rgb(85, 85, 85);
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  /* display: flex; */
+  /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(rgb(160, 160, 160));
+}
+
+
+a {
+  font-weight: 600;
+  text-decoration: inherit;
 }
 
 button {
@@ -47,27 +71,8 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #000000;
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
