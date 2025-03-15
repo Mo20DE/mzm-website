@@ -1,4 +1,3 @@
-import './App.css'
 
 import { useEffect } from 'react'
 import { ThemeProvider } from './components/theme/ThemeProvider'

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaPaperPlane } from "react-icons/fa";
-import { text } from "framer-motion/client";
+import axios from "axios";
 
 const Contact = () => {
 
@@ -24,6 +24,7 @@ const Contact = () => {
         message: false,
     });
 
+    const [msgSent, setMsgSent] = useState(false);
 
     const handleChange = (e) => {
 
@@ -67,17 +68,27 @@ const Contact = () => {
         return newValidation.name && newValidation.email && newValidation.message;
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
 
         e.preventDefault();
+        const { name, email, message } = formData;
+        setFormData({name: '', email: '', message: ''});
 
         if (handleValidation()) {
-            console.log("Success");
-            setFormData({
-                name: '',
-                email: '',
-                message: ''
+            const response = await axios.post(`${process.env.MZM_API_URL}/send-email`, {
+                name,
+                email,
+                message
             });
+            
+            if (response.data.success) {
+                alert("Message was Successfully sent!");
+            }
+            else {
+                alert("An error occurred while sending the message!");
+            }
+            // setMsgSent(true);
+            // setTimeout(() => setMsgSent(false), 3000);
         }
     };
 
@@ -109,7 +120,7 @@ const Contact = () => {
                 onSubmit={handleSubmit}
                 className="
                     text-black overflow-hidden 
-                    flex flex-col items-center mt-16"
+                    flex flex-col items-center mt-16 text-lg"
             >
                 <input 
                     type='text' 
@@ -161,18 +172,17 @@ const Contact = () => {
                             "
                         required
                     />
-                    <div className="absolute text-right text-md text-black">
+                    <div className="absolute text-right text-md dark:text-white">
                         {formData.message.length}/500
                     </div>
                 </div>
                 {errors.message && <p className="text-red-500 text-sm mt-4">{errors.message}</p>}
-
+                {msgSent && <p className="text-green-500 mt-5 -mb-5">Message successfully sent.</p>}
                 <button
                     className="
                         mt-10 text-xl font-bold text-white dark:text-black 
                         bg-black dark:bg-gray-100 
-                        hover:bg-slate-700 dark:hover:bg-gray-300 duration-200 transition-all
-                        "
+                        hover:bg-slate-700 dark:hover:bg-gray-300 duration-200 transition-all"
                 >
                     <span>Send {<FaPaperPlane className="inline-block ml-1 -mt-1"/>}</span>
                 </button>

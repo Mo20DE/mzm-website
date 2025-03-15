@@ -22,7 +22,8 @@ function Header() {
 
         if (isOpen) {
             setShouldRender(true);
-        } else {
+        } 
+        else {
             setTimeout(() => {
                 setShouldRender(false);
             }, 300);
