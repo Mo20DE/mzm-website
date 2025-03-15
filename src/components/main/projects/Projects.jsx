@@ -88,7 +88,7 @@ const Projects = () => {
                         <Label label='Java' />,
                         <Label label='C++' />,
                     ]}
-                    link={<Label label='Github' url='https://github.com/Mo20DE/NAO-Robot'/>}
+                    link={<Label label='Github' url='https://github.com/Mo20DE/cyber-physical-systems-project'/>}
                 >
                     <p>
                         In a university project, my team and I developed an embedded system consisting of an Arduino, a Raspberry Pi, various sensors, and actuators. We integrated these components and built a backend on the Raspberry Pi that 
