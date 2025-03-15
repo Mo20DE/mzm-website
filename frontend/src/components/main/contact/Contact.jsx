@@ -72,9 +72,9 @@ const Contact = () => {
 
         e.preventDefault();
         const { name, email, message } = formData;
-        setFormData({name: '', email: '', message: ''});
-
+        
         if (handleValidation()) {
+            setFormData({name: '', email: '', message: ''});
             const response = await axios.post(`${process.env.MZM_API_URL}/send-email`, {
                 name,
                 email,
