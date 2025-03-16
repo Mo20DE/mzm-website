@@ -58,13 +58,13 @@ const Contact = () => {
         if (handleValidation()) {
             setFormData({name: '', email: '', message: ''});
             try {
-                const api_url = process.env.REACT_APP_MZM_API_URL;
-                const response = await axios.post(`${api_url}/send-email`, {
+                const api_url = 'https://mzm-backend.vercel.app/api/send-email';
+                const response = await axios.post(api_url, {
                     name,
                     email,
                     message
                 });
-                
+
                 console.log("Response from API:", response); // Logge die vollständige Antwort
                 if (response.data.success) {
                     alert("Message was Successfully sent!");
