@@ -72,6 +72,7 @@ const Contact = () => {
 
         e.preventDefault();
         const { name, email, message } = formData;
+        setFormData({name: '', email: '', message: ''});
         
         if (handleValidation()) {
             try {
@@ -80,7 +81,6 @@ const Contact = () => {
                     email,
                     message
                 });
-            
                 console.log("Response from API:", response); // Logge die vollständige Antwort
             
                 if (response.data.success) {
@@ -90,7 +90,7 @@ const Contact = () => {
                 }
             } catch (error) {
                 console.error("Error sending the message:", error);
-                // Wenn error.response verfügbar ist, logge mehr Details
+
                 if (error.response) {
                     console.error("Error response:", error.response);
                     alert(`An error occurred: ${error.response.data.message || "Unknown error"}`);
@@ -102,7 +102,6 @@ const Contact = () => {
                     alert("An error occurred. Please try again later.");
                 }
             }
-            setFormData({name: '', email: '', message: ''});
             // setMsgSent(true);
             // setTimeout(() => setMsgSent(false), 3000);
         }
