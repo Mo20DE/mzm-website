@@ -18,16 +18,7 @@ const Contact = () => {
         message: ''
     });
 
-    const [validation, setValidation] = useState({
-        name: false,
-        email: false,
-        message: false,
-    });
-
-    const [msgSent, setMsgSent] = useState(false);
-
     const handleChange = (e) => {
-
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
@@ -37,36 +28,27 @@ const Contact = () => {
     const handleValidation = () => {
 
         let newErrors = {name: '', email: '', message: ''};
-        let newValidation = {name: false, email: false, message: false};
+        let validation = {name: false, email: false, message: false};
 
         if (/^[a-zA-ZäöüßÄÖÜ\s'-]{3,}$/.test(formData.name.trim())) {
-            newValidation.name = true;
+            validation.name = true;
         } 
-        else {
-            newErrors.name = 'Name must be at least 3 characters.'
-            newValidation.name = false;
-        } 
+        else newErrors.name = 'Name must be at least 3 characters.'
         
         if (/^\S+@\S+\.\S+$/.test(formData.email.trim())) {
-            newValidation.email = true;
+            validation.email = true;
         } 
-        else {
-            newErrors.email = 'Please provide a valid email address.'
-            newValidation.email = false;
-        }
+        else newErrors.email = 'Please provide a valid email address.'
 
-        if (formData.message.trim().length < 10) {
-            newErrors.message = 'Message must be at least 10 characters.'
-            newValidation.message = false;
+        if (formData.message.trim().length >= 10) {
+            validation.message = true;
         } 
-        else {
-            newValidation.message = true;
-        }
-        setErrors(newErrors);
-        setValidation(newValidation);
+        else newErrors.message = 'Message must be at least 10 characters.'
         
-        return newValidation.name && newValidation.email && newValidation.message;
-    }
+        setErrors(newErrors);
+        
+        return validation.name && validation.email && validation.message;
+    };
 
     const handleSubmit = async (e) => {
 
@@ -82,28 +64,27 @@ const Contact = () => {
                     message
                 });
                 console.log("Response from API:", response); // Logge die vollständige Antwort
-            
                 if (response.data.success) {
                     alert("Message was Successfully sent!");
-                } else {
-                    alert("An error occurred while sending the message!");
-                }
-            } catch (error) {
-                console.error("Error sending the message:", error);
+                } 
+                else alert("An error occurred while sending the message!");
 
+            } catch (error) {
+
+                console.error("Error sending the message:", error);
                 if (error.response) {
                     console.error("Error response:", error.response);
                     alert(`An error occurred: ${error.response.data.message || "Unknown error"}`);
+
                 } else if (error.request) {
                     console.error("Error request:", error.request);
                     alert("No response received from the server.");
+
                 } else {
                     console.error("Error message:", error.message);
                     alert("An error occurred. Please try again later.");
                 }
             }
-            // setMsgSent(true);
-            // setTimeout(() => setMsgSent(false), 3000);
         }
     };
 
@@ -150,6 +131,7 @@ const Contact = () => {
                     required
                 />
                 {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+                
                 <br/>
                 <input 
                     type='email' 
@@ -165,6 +147,7 @@ const Contact = () => {
                     required
                 />
                 {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                
                 <br/>
                 <div className="
                     w-11/12 max-w-md h-[200px] 
@@ -192,7 +175,7 @@ const Contact = () => {
                     </div>
                 </div>
                 {errors.message && <p className="text-red-500 text-sm mt-4">{errors.message}</p>}
-                {msgSent && <p className="text-green-500 mt-5 -mb-5">Message successfully sent.</p>}
+
                 <button
                     className="
                         mt-10 text-xl font-bold text-white dark:text-black 
