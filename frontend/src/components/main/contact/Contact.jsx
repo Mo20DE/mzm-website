@@ -74,7 +74,6 @@ const Contact = () => {
         const { name, email, message } = formData;
         
         if (handleValidation()) {
-            setFormData({name: '', email: '', message: ''});
             try {
                 const response = await axios.post(`${process.env.MZM_API_URL}/send-email`, {
                     name,
@@ -93,6 +92,7 @@ const Contact = () => {
                 console.error("Error sending the message:", error);
                 alert("An error occurred while sending the message. Please try again later.");
             }
+            setFormData({name: '', email: '', message: ''});
             // setMsgSent(true);
             // setTimeout(() => setMsgSent(false), 3000);
         }
