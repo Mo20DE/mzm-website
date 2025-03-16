@@ -54,7 +54,6 @@ const Contact = () => {
 
         e.preventDefault();
         const { name, email, message } = formData;
-        setFormData({name: '', email: '', message: ''});
         
         if (handleValidation()) {
             try {
@@ -68,24 +67,25 @@ const Contact = () => {
                     alert("Message was Successfully sent!");
                 } 
                 else alert("An error occurred while sending the message!");
-
+                
             } catch (error) {
-
+                
                 console.error("Error sending the message:", error);
                 if (error.response) {
                     console.error("Error response:", error.response);
                     alert(`An error occurred: ${error.response.data.message || "Unknown error"}`);
-
+                    
                 } else if (error.request) {
                     console.error("Error request:", error.request);
                     alert("No response received from the server.");
-
+                    
                 } else {
                     console.error("Error message:", error.message);
                     alert("An error occurred. Please try again later.");
                 }
             }
         }
+        setFormData({name: '', email: '', message: ''});
     };
 
     return (
