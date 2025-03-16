@@ -75,7 +75,7 @@ const Contact = () => {
         
         if (handleValidation()) {
             try {
-                const response = await axios.post(`${process.env.MZM_API_URL}/send-email`, {
+                const response = await axios.post(`https://mzm-backend.vercel.app/api/send-email`, {
                     name,
                     email,
                     message
