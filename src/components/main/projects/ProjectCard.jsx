@@ -25,9 +25,7 @@ const ProjectCard = ({ project_image, caption, labels, link, children, left_to_r
                 </div>
                 
                 <div className={content_attr}>
-
                     <h1 className="text-3xl mb-5 font-bold">{caption}</h1>
-
                     <div>
                         {children}
                     </div>
@@ -39,10 +37,9 @@ const ProjectCard = ({ project_image, caption, labels, link, children, left_to_r
                     <div className="mt-8">
                         {link}
                     </div>
-
                 </div>
         </div>
-    )
-}
+    );
+};
 
 export default ProjectCard;

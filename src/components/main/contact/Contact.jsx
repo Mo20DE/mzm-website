@@ -33,9 +33,9 @@ const Contact = () => {
         if (/^[a-zA-ZäöüßÄÖÜ\s'-]{3,}$/.test(formData.name.trim())) {
             validation.name = true;
         } 
-        else newErrors.name = 'Name must be at least 3 characters.'
+        else newErrors.name = 'Please provide a valid name with min. 3 characters.'
         
-        if (/^\S+@\S+\.\S+$/.test(formData.email.trim())) {
+        if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email.trim())) {
             validation.email = true;
         } 
         else newErrors.email = 'Please provide a valid email address.'
@@ -56,36 +56,38 @@ const Contact = () => {
         const { name, email, message } = formData;
         
         if (handleValidation()) {
+            setFormData({name: '', email: '', message: ''});
             try {
-                const response = await axios.post(`https://mzm-backend.vercel.app/api/send-email`, {
+                const api_url = process.env.REACT_APP_MZM_API_URL;
+                const response = await axios.post(`${api_url}/send-email`, {
                     name,
                     email,
                     message
                 });
+                
                 console.log("Response from API:", response); // Logge die vollständige Antwort
                 if (response.data.success) {
                     alert("Message was Successfully sent!");
                 } 
                 else alert("An error occurred while sending the message!");
-                
+
             } catch (error) {
-                
+
                 console.error("Error sending the message:", error);
                 if (error.response) {
                     console.error("Error response:", error.response);
                     alert(`An error occurred: ${error.response.data.message || "Unknown error"}`);
-                    
+
                 } else if (error.request) {
                     console.error("Error request:", error.request);
                     alert("No response received from the server.");
-                    
+
                 } else {
                     console.error("Error message:", error.message);
                     alert("An error occurred. Please try again later.");
                 }
             }
         }
-        setFormData({name: '', email: '', message: ''});
     };
 
     return (
@@ -121,7 +123,7 @@ const Contact = () => {
                 <input 
                     type='text' 
                     name='name' 
-                    value={formData.name}äh
+                    value={formData.name}
                     onChange={handleChange}
                     placeholder="Your Name"
                     className={`
@@ -130,7 +132,7 @@ const Contact = () => {
                         dark:border-gray-400 focus:outline-none`}
                     required
                 />
-                {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+                {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
                 
                 <br/>
                 <input 
@@ -146,7 +148,7 @@ const Contact = () => {
                         focus:outline-none"
                     required
                 />
-                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                {errors.email && <p className="text-red-600 text-sm">{errors.email}</p>}
                 
                 <br/>
                 <div className="
@@ -174,7 +176,7 @@ const Contact = () => {
                         {formData.message.length}/500
                     </div>
                 </div>
-                {errors.message && <p className="text-red-500 text-sm mt-4">{errors.message}</p>}
+                {errors.message && <p className="text-red-600 text-sm mt-4">{errors.message}</p>}
 
                 <button
                     className="

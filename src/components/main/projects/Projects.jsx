@@ -42,10 +42,10 @@ const Projects = () => {
                     project_image={portfolio_webapp} 
                     caption={'Portfolio Website'}
                     labels={[
-                        <Label label='React' />,
-                        <Label label='Tailwind' />,
-                        <Label label='Vite' />,
-                        <Label label='Responsive Design' />,
+                        <Label key='react' label='React' />,
+                        <Label key='tailwind' label='Tailwind' />,
+                        <Label key='vite' label='Vite' />,
+                        <Label key='rd' label='Responsive Design' />,
                     ]}
                     link={<Label label='Github' url='https://github.com/Mo20DE/mzm-website' />}
                 >
@@ -61,11 +61,11 @@ const Projects = () => {
                     project_image={nao_robot} 
                     caption={"NAO-Robot with GPT"}
                     labels={[
-                        <Label label='Python' />,
-                        <Label label='JSON' />,
-                        <Label label='GPT' />,
-                        <Label label='AI' />,
-                        <Label label='OpenAI API' />,
+                        <Label key='py' label='Python' />,
+                        <Label key='json' label='JSON' />,
+                        <Label key='gpt' label='GPT' />,
+                        <Label key='ai' label='AI' />,
+                        <Label key='openai-api' label='OpenAI API' />,
                     ]}
                     link={<Label label='Github' url='https://github.com/Mo20DE/NAO-Robot'/>}
                     left_to_right={false}
@@ -82,11 +82,11 @@ const Projects = () => {
                     project_image={me_robot} 
                     caption={"Cyber-Physical System"}
                     labels={[
-                        <Label label='JavaScript' />,
-                        <Label label='HTML' />,
-                        <Label label='CSS' />,
-                        <Label label='Java' />,
-                        <Label label='C++' />,
+                        <Label key='js' label='JavaScript' />,
+                        <Label key='html' label='HTML' />,
+                        <Label key='css' label='CSS' />,
+                        <Label key='java' label='Java' />,
+                        <Label key='c++' label='C++' />,
                     ]}
                     link={<Label label='Github' url='https://github.com/Mo20DE/cyber-physical-systems-project'/>}
                 >
@@ -101,20 +101,20 @@ const Projects = () => {
                     project_image={demo_webapp} 
                     caption={'Superhero Platform'}
                     labels={[
-                        <Label label='HTML' />,
-                        <Label label='CSS' />,
-                        <Label label='JS' />,
-                        <Label label='PHP' />,
-                        <Label label='JSON' />,
-                        <Label label='RESTful API' />,
+                        <Label key='html' label='HTML' />,
+                        <Label key='css' label='CSS' />,
+                        <Label key='js' label='JS' />,
+                        <Label key='php' label='PHP' />,
+                        <Label key='json' label='JSON' />,
+                        <Label key='rest-api' label='RESTful API' />,
                     ]}
                     link={<Label label='Github' url='https://github.com/Mo20DE/AOE-backend-challenge'/>}
                     left_to_right={false}
                 >
                     <p>
-                    I completed a coding challenge from AOE GmbH, where I developed a PHP backend. Users can interact with a superheroes 
-                    database by fetching data via HTTP GET and adding new superheroes via POST. Additionally, they can filter superheroes 
-                    based on abilities, encrypt the fetched data server-side, and use an interface for easy interaction with the backend.
+                        I completed a coding challenge from AOE GmbH, where I developed a PHP backend. Users can interact with a superheroes 
+                        database by fetching data via HTTP GET and adding new superheroes via POST. Additionally, they can filter superheroes 
+                        based on abilities, encrypt the fetched data server-side, and use an interface for easy interaction with the backend.
                     </p>
                 </ProjectCard>
 
@@ -122,10 +122,10 @@ const Projects = () => {
                     project_image={app_2048} 
                     caption={'2048 Desktop'}
                     labels={[
-                        <Label label='Python' />,
-                        <Label label='Pygame' />,
-                        <Label label='AI-Solver' />,
-                        <Label label='JSON' />
+                        <Label key='py' label='Python' />,
+                        <Label key='pygame' label='Pygame' />,
+                        <Label key='ai-solver' label='AI-Solver' />,
+                        <Label key='json' label='JSON' />
                     ]}
                     link={<Label label='Github' url='https://github.com/Mo20DE/Game_Dev/tree/main/2048'/>}
                 >
