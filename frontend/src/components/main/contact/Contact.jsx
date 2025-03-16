@@ -75,17 +75,23 @@ const Contact = () => {
         
         if (handleValidation()) {
             setFormData({name: '', email: '', message: ''});
-            const response = await axios.post(`${process.env.MZM_API_URL}/send-email`, {
-                name,
-                email,
-                message
-            });
-            
-            if (response.data.success) {
-                alert("Message was Successfully sent!");
-            }
-            else {
-                alert("An error occurred while sending the message!");
+            try {
+                const response = await axios.post(`${process.env.MZM_API_URL}/send-email`, {
+                    name,
+                    email,
+                    message
+                });
+                
+                if (response.data.success) {
+                    alert("Message was Successfully sent!");
+                }
+                else {
+                    alert("An error occurred while sending the message!");
+                }
+            } 
+            catch (error) {
+                console.error("Error sending the message:", error);
+                alert("An error occurred while sending the message. Please try again later.");
             }
             // setMsgSent(true);
             // setTimeout(() => setMsgSent(false), 3000);
