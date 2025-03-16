@@ -80,17 +80,27 @@ const Contact = () => {
                     email,
                     message
                 });
-                
+            
+                console.log("Response from API:", response); // Logge die vollständige Antwort
+            
                 if (response.data.success) {
                     alert("Message was Successfully sent!");
-                }
-                else {
+                } else {
                     alert("An error occurred while sending the message!");
                 }
-            } 
-            catch (error) {
+            } catch (error) {
                 console.error("Error sending the message:", error);
-                alert("An error occurred while sending the message. Please try again later.");
+                // Wenn error.response verfügbar ist, logge mehr Details
+                if (error.response) {
+                    console.error("Error response:", error.response);
+                    alert(`An error occurred: ${error.response.data.message || "Unknown error"}`);
+                } else if (error.request) {
+                    console.error("Error request:", error.request);
+                    alert("No response received from the server.");
+                } else {
+                    console.error("Error message:", error.message);
+                    alert("An error occurred. Please try again later.");
+                }
             }
             setFormData({name: '', email: '', message: ''});
             // setMsgSent(true);
