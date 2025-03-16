@@ -25,7 +25,7 @@ export default {
         },
 
         handMovement: {
-          '0%': {transform: 'rotate(-10deg)'},
+          '0%': {transform: 'rotate(-5deg)'},
           '100%': {transform: 'rotate(15deg)'}
         }
       },
