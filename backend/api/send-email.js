@@ -26,6 +26,7 @@ module.exports = async (event) => {
         };
     }
 
+    // Nur POST-Anfragen akzeptieren
     if (event.httpMethod === 'POST') {
         const { name, email, message } = JSON.parse(event.body);
 
@@ -62,13 +63,14 @@ module.exports = async (event) => {
                 })
             };
         } catch (error) {
-            console.error(error);
+            console.error('Fehler beim Senden der E-Mail:', error);
             return {
                 statusCode: 500,
                 headers,
                 body: JSON.stringify({
                     success: false,
-                    message: 'E-Mail could not be send!'
+                    message: 'E-Mail could not be sent!',
+                    error: error.message // Füge den Fehlertext hinzu, um das Problem besser zu erkennen
                 })
             };
         }
