@@ -98,7 +98,7 @@ const Contact = () => {
                 lg:mt-10 mb-24 scroll-mt-28'
                 initial={{y: 20, opacity: 0}}
                 whileInView={{y: 0, opacity: 1}}
-                viewport={{once: true, amount: 0.4}}
+                viewport={{once: true, amount: 0.35}}
                 transition={{duration: 0.8, ease: "easeOut"}}
         >
             <h1 className='

@@ -6,7 +6,7 @@ import ResumeButton from "../../general/ResumeButton";
 function Home() {
 
     return (
-        <div  className='flex flex-col lg:flex-row items-center w-5/6 mt-36 md:mt-48 mb-28 gap-24 lg:gap-44'>
+        <div  className='flex flex-col lg:flex-row items-center w-5/6 mt-[152px] md:mt-48 mb-28 gap-24 lg:gap-44'>
             <Avatar/>
             <div className="text-left ml-10 mr-10 md:ml-16 -mt-10 lg:mt-0">
                 <p className="text-[26px] md:text-4xl lg:text-[40px] xl:text-5xl pb-4 font-bold">
