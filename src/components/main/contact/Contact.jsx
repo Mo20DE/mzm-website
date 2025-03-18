@@ -95,7 +95,7 @@ const Contact = () => {
                 id='contact' 
                 className='
                 w-5/6 h-auto
-                lg:mt-10 mb-24 scroll-mt-28'
+                lg:mt-10 mb-28 scroll-mt-28'
                 initial={{y: 20, opacity: 0}}
                 whileInView={{y: 0, opacity: 1}}
                 viewport={{once: true, amount: 0.35}}
@@ -118,7 +118,7 @@ const Contact = () => {
                 onSubmit={handleSubmit}
                 className="
                     text-black overflow-hidden 
-                    flex flex-col items-center mt-16 text-lg"
+                    flex flex-col items-center mt-[72px] text-lg"
             >
                 <input 
                     type='text' 
@@ -180,7 +180,7 @@ const Contact = () => {
 
                 <button
                     className="
-                        mt-10 text-xl font-bold text-white dark:text-black 
+                        mt-14 text-xl font-bold text-white dark:text-black 
                         bg-black dark:bg-gray-100 
                         hover:bg-slate-700 dark:hover:bg-gray-300 duration-200 transition-all"
                 >
