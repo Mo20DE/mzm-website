@@ -18,6 +18,8 @@ const Contact = () => {
         message: ''
     });
 
+    const [isBtnDisabled, setBtnDisabled] = useState(false);
+
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -56,7 +58,7 @@ const Contact = () => {
         const { name, email, message } = formData;
         
         if (handleValidation()) {
-            setFormData({name: '', email: '', message: ''});
+            setBtnDisabled(true);
             try {
                 const api_url = 'https://mzm-backend.vercel.app/api/send-email';
                 const response = await axios.post(api_url, {
@@ -64,29 +66,29 @@ const Contact = () => {
                     email,
                     message
                 });
-
-                console.log("Response from API:", response); // Logge die vollständige Antwort
                 if (response.data.success) {
                     alert("Message was Successfully sent!");
                 } 
                 else alert("An error occurred while sending the message!");
-
+                
             } catch (error) {
-
+                
                 console.error("Error sending the message:", error);
                 if (error.response) {
                     console.error("Error response:", error.response);
                     alert(`An error occurred: ${error.response.data.message || "Unknown error"}`);
-
+                    
                 } else if (error.request) {
                     console.error("Error request:", error.request);
                     alert("No response received from the server.");
-
+                    
                 } else {
                     console.error("Error message:", error.message);
                     alert("An error occurred. Please try again later.");
                 }
             }
+            setFormData({name: '', email: '', message: ''});
+            setBtnDisabled(false);
         }
     };
 
@@ -179,10 +181,13 @@ const Contact = () => {
                 {errors.message && <p className="text-red-600 text-sm mt-4">{errors.message}</p>}
 
                 <button
-                    className="
+                    className={`
                         mt-14 text-xl font-bold text-white dark:text-black 
                         bg-black dark:bg-gray-100 
-                        hover:bg-slate-700 dark:hover:bg-gray-300 duration-200 transition-all"
+                        hover:bg-slate-700 dark:hover:bg-gray-300 
+                        duration-200 transition-all
+                        disabled:cursor-not-allowed`}
+                        disabled={isBtnDisabled}
                 >
                     <span>Send {<FaPaperPlane className="inline-block ml-1 -mt-1"/>}</span>
                 </button>
