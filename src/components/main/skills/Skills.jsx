@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import SkillCard from "./SkillCard";
 
-import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaPython, FaJava, FaNodeJs, FaGitAlt, FaVuejs, FaBootstrap, FaPhp } from "react-icons/fa";
+import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaPython, FaJava, FaNodeJs, FaGitAlt, FaVuejs, FaBootstrap, FaPhp, FaDocker } from "react-icons/fa";
 import { SiTypescript, SiHaskell, SiTailwindcss, SiMongodb, SiPostgresql, SiGnubash } from "react-icons/si";
 import { TbBrandCpp, TbBrandThreejs } from "react-icons/tb";
 
@@ -53,6 +53,7 @@ const Skills = () => {
                 <SkillCard logo={<SiPostgresql />} skill={"PostgreSQL"}/>
                 <SkillCard logo={<SiGnubash />} skill={"Bash"}/>
                 <SkillCard logo={<FaGitAlt />} skill={"Git"}/>
+                <SkillCard logo={<FaDocker />} skill={"Docker"}/>
 
             </div>
         </motion.div>
