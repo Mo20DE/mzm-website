@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 
+import ecg_signals from "../../../assets/projects/ecg_signals.png"
 import portfolio_webapp from '../../../assets/projects/portfolio_webapp.png';
 import nao_robot from '../../../assets/projects/nao_robot.png';
 import me_robot from '../../../assets/projects/me_robot.png';
@@ -38,6 +39,28 @@ const Projects = () => {
             </h1>
             
             <div className='mt-20 md:ml-20 md:mr-20 flex flex-col justify-center gap-14'>
+
+                <ProjectCard 
+                    project_image={ecg_signals} 
+                    caption={'Neural Network for ECG Classification'}
+                    labels={[
+                        <Label key='ml' label='Machine Learning' />,
+                        <Label key='ml' label='Deep Learning' />,
+                        <Label key='ai' label='AI' />,
+                        <Label key='py' label='Python' />,
+                    ]}
+                    link={<Label label='Github' url='https://github.com/Mo20DE/AMLS/tree/main' />}
+                    left_to_right={false}
+                >
+                    <p>
+                        This project uses artificial intelligence to automatically classify ECG heart signals 
+                        into four types: Normal, Atrial Fibrillation, Other, and Noisy. It was trained to recognize 
+                        patterns in the data, even when the signals are unbalanced or vary in length. The model performs 
+                        reliably, reaching a strong accuracy score on test data. It can also work well with smaller, 
+                        compressed data — ideal for faster or mobile applications.
+                    </p>
+                </ProjectCard>
+
                 <ProjectCard 
                     project_image={portfolio_webapp} 
                     caption={'Portfolio Website'}

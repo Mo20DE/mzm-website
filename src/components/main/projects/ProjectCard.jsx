@@ -1,6 +1,4 @@
 
-import { FaPython, FaHtml5, FaCss3Alt, FaJs, FaJava, FaReact, FaExternalLinkAlt } from "react-icons/fa";
-
 const ProjectCard = ({ project_image, caption, labels, link, children, left_to_right = true }) => {
 
     const img_attr = 'xl:w-1/2 select-none overflow-hidden flex items-center justify-center';
