@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 
+import segmentation from "../../../assets/projects/segmentation.png"
 import ecg_signals from "../../../assets/projects/ecg_signals.png"
 import portfolio_webapp from '../../../assets/projects/portfolio_webapp.png';
 import nao_robot from '../../../assets/projects/nao_robot.png';
@@ -39,25 +40,48 @@ const Projects = () => {
             </h1>
             
             <div className='mt-20 md:ml-20 md:mr-20 flex flex-col justify-center gap-14'>
+                <ProjectCard 
+                    project_image={segmentation} 
+                    caption={'Deep Neural Network for Scene-Dependent Image Segmentation'}
+                    labels={[
+                        <Label key='dl' label='Deep Learning' />,
+                        <Label key='ml' label='Machine Learning' />,
+                        <Label key='ai' label='AI' />,
+                        <Label key='py' label='Python' />,
+                        <Label key='torch' label='PyTorch' />,
+                    ]}
+                    link={<Label label='Github' url='https://github.com/Mo20DE/ML/tree/main/Scene-Segmentation' />}
+                    left_to_right={true}
+                >
+                    <p>
+                        Developed an
+                        application to automatically separate moving objects from
+                        the background in video scenes. This project involved
+                        creating a specialized neural network (UNet) and a robust
+                        training process, which resulted in highly accurate object
+                        detection.
+                    </p>
+                </ProjectCard>
 
                 <ProjectCard 
                     project_image={ecg_signals} 
                     caption={'Neural Network for ECG Classification'}
                     labels={[
                         <Label key='ml' label='Machine Learning' />,
-                        <Label key='ml' label='Deep Learning' />,
+                        <Label key='dl' label='Deep Learning' />,
                         <Label key='ai' label='AI' />,
                         <Label key='py' label='Python' />,
+                        <Label key='torch' label='PyTorch' />,
                     ]}
-                    link={<Label label='Github' url='https://github.com/Mo20DE/AMLS/tree/main' />}
+                    link={<Label label='Github' url='https://github.com/Mo20DE/ML/tree/main/ECG-Classifier' />}
                     left_to_right={false}
                 >
                     <p>
-                        This project uses artificial intelligence to automatically classify ECG heart signals 
-                        into four types: Normal, Atrial Fibrillation, Other, and Noisy. It was trained to recognize 
-                        patterns in the data, even when the signals are unbalanced or vary in length. The model performs 
-                        reliably, reaching a strong accuracy score on test data. It can also work well with smaller, 
-                        compressed data — ideal for faster or mobile applications.
+                        In a team, we created a system
+                        (Neural Network) to automatically identify different heart
+                        rhythms from ECG signals. The project used smart data
+                        preparation and specialized training techniques to handle
+                        challenging data and achieve reliable performance.
                     </p>
                 </ProjectCard>
 
