@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import ProjectCard from './ProjectCard';
 
+import trackmatch from "../../../assets/projects/trackmatch.png"
 import segmentation from "../../../assets/projects/segmentation.png"
 import ecg_signals from "../../../assets/projects/ecg_signals.png"
 import portfolio_webapp from '../../../assets/projects/portfolio_webapp.png';
@@ -40,6 +41,21 @@ const Projects = () => {
             </h1>
             
             <div className='mt-20 md:ml-20 md:mr-20 flex flex-col justify-center gap-14'>
+                <ProjectCard 
+                    project_image={segmentation} 
+                    caption={'TrackMatch - A Music-Recognition System'}
+                    labels={[
+                        <Label key='java' label='Java' />,
+                        <Label key='algo' label='Algorithm' />,
+                    ]}
+                    link={<Label label='Github' url='https://github.com/Mo20DE/TrackMatch/tree/main' />}
+                    left_to_right={false}
+                >
+                    <p>
+                        This project is still in development.
+                    </p>
+                </ProjectCard>
+
                 <ProjectCard 
                     project_image={segmentation} 
                     caption={'Deep Neural Network for Scene-Dependent Image Segmentation'}
