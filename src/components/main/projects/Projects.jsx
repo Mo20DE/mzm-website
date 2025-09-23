@@ -42,7 +42,7 @@ const Projects = () => {
             
             <div className='mt-20 md:ml-20 md:mr-20 flex flex-col justify-center gap-14'>
                 <ProjectCard 
-                    project_image={segmentation} 
+                    project_image={trackmatch} 
                     caption={'TrackMatch - A Music-Recognition System'}
                     labels={[
                         <Label key='java' label='Java' />,
