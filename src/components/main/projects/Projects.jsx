@@ -68,7 +68,7 @@ const Projects = () => {
                         interactions, and a robust backend.
                     </p>
                     <br/>
-                    <a className='underline' href="https://drive.google.com/file/d/1wfJiKjMyx45iD1AhXBeAKbp2wM6MmKC9/view">
+                    <a className='underline' href="https://drive.google.com/file/d/1wfJiKjMyx45iD1AhXBeAKbp2wM6MmKC9/view" target='_blank'>
                         Check out a demo
                     </a>
                 </ProjectCard>
