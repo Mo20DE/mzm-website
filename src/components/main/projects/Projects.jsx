@@ -43,17 +43,34 @@ const Projects = () => {
             <div className='mt-20 md:ml-20 md:mr-20 flex flex-col justify-center gap-14'>
                 <ProjectCard 
                     project_image={trackmatch} 
-                    caption={'TrackMatch - A Music-Recognition System'}
+                    caption={'TrackMatch - A Music Recognition System'}
                     labels={[
+                        <Label key='next.js' label='Next.js' />,
+                        <Label key='react' label='React' />,
+                        <Label key='tailwind' label='Tailwind' />,
                         <Label key='java' label='Java' />,
-                        <Label key='algo' label='Algorithm' />,
+                        <Label key='spring boot' label='Spring Boot' />,
+                        <Label key='postgreSQL' label='PostgreSQL' />,
+                        <Label key='signal processing' label='Singal Processing' />,
                     ]}
                     link={<Label label='Github' url='https://github.com/Mo20DE/TrackMatch/tree/main' />}
                     left_to_right={false}
                 >
                     <p>
-                        This project is still in development.
+                        Developed a robust full-stack application that implements the Shazam algorithm for music recognition, 
+                        showcasing expertise in digital audio processing and scalable architecture. The system is built with a Spring 
+                        Boot backend and a PostgreSQL database, which are tasked with efficiently managing and matching audio 
+                        fingerprints - unique digital signatures generated from music tracks. The application features two key RESTful 
+                        endpoints: one for ingesting (fetching metadata via Spotify and audio via yt-dlp) and fingerprinting new songs, 
+                        and another that handles the real-time recognition. When an audio snippet is received, an efficient matching 
+                        algorithm instantly queries the database to identify the track and return the highest matches (YouTube Video IDs). 
+                        This project, complete with a Next.js (React/Tailwind) frontend, successfully integrates complex algorithms, API 
+                        interactions, and a robust backend.
                     </p>
+                    <br/>
+                    <a className='underline' href="https://drive.google.com/file/d/1wfJiKjMyx45iD1AhXBeAKbp2wM6MmKC9/view">
+                        Check out a demo
+                    </a>
                 </ProjectCard>
 
                 <ProjectCard 
